@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ka8-A4-Ctr">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Заметки-->
+        <scene sceneID="uEQ-rl-TZr">
+            <objects>
+                <viewController id="hsg-tG-Aat" customClass="TaskListViewController" customModule="Заметки" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fv5-Nh-enp">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Che-x6-h72">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="K6l-qP-CCX">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K6l-qP-CCX" id="kIc-ZP-FcG">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hsg-tG-Aat" id="Nss-F3-SLM"/>
+                                    <outlet property="delegate" destination="hsg-tG-Aat" id="scp-4Z-XTP"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3uX-4V-d2T"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3uX-4V-d2T" firstAttribute="bottom" secondItem="Che-x6-h72" secondAttribute="bottom" id="65u-ok-bgs"/>
+                            <constraint firstItem="Che-x6-h72" firstAttribute="leading" secondItem="3uX-4V-d2T" secondAttribute="leading" id="Fgq-0B-AeN"/>
+                            <constraint firstItem="3uX-4V-d2T" firstAttribute="trailing" secondItem="Che-x6-h72" secondAttribute="trailing" id="VsO-PT-4MT"/>
+                            <constraint firstItem="Che-x6-h72" firstAttribute="top" secondItem="3uX-4V-d2T" secondAttribute="top" id="bff-g0-m1t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Заметки" id="Opu-g4-eG6">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="JY6-aT-wHO">
+                            <connections>
+                                <action selector="addNewTask:" destination="hsg-tG-Aat" id="E6q-Ds-WRg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Che-x6-h72" id="IWt-8r-Ibb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OeD-27-nez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2958" y="-25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kax-vM-WFY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ka8-A4-Ctr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gzx-Af-v8W">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hsg-tG-Aat" kind="relationship" relationship="rootViewController" id="k69-ZK-XNn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dgz-QK-0Dc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2113.740458015267" y="-25.35211267605634"/>
+        </scene>
+        <!--Новая заметка-->
+        <scene sceneID="HI9-XF-Mui">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SzD-2C-G4r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="newTask" id="NF2-eX-5Ez" customClass="NewTaskViewController" customModule="Заметки" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ON7-Ma-wfk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your task" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="1uD-WO-9Rx">
+                                <rect key="frame" x="71.666666666666686" y="163" width="250" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="mcO-H2-HKz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="e8e-E0-lmG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1uD-WO-9Rx" firstAttribute="centerX" secondItem="ON7-Ma-wfk" secondAttribute="centerX" id="FTX-AB-JPG"/>
+                            <constraint firstItem="1uD-WO-9Rx" firstAttribute="top" secondItem="e8e-E0-lmG" secondAttribute="top" constant="60" id="mXF-Ii-iOI"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Новая заметка" id="4Le-rj-Q37">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Ahd-15-tci">
+                            <color key="tintColor" red="0.72258047510000001" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="didTapCancelButton:" destination="NF2-eX-5Ez" id="ud0-DQ-LTt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ceB-HW-58v">
+                            <connections>
+                                <action selector="didTapSaveButton:" destination="NF2-eX-5Ez" id="x2F-7C-3XS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="newTask" destination="1uD-WO-9Rx" id="yUA-xc-rhY"/>
+                        <outlet property="saveButton" destination="ceB-HW-58v" id="XbT-03-pMq"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="4424" y="-25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="c94-Tl-PTz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yFV-wn-P7b" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kyQ-QA-sLm">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NF2-eX-5Ez" kind="relationship" relationship="rootViewController" id="fko-jc-RfI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A2X-zs-DPJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3681.679389312977" y="-25.35211267605634"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

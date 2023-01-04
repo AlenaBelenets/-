@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		9255CF85296472C000C1BAF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9255CF84296472C000C1BAF2 /* AppDelegate.swift */; };
 		9255CF87296472C000C1BAF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9255CF86296472C000C1BAF2 /* SceneDelegate.swift */; };
-		9255CF89296472C000C1BAF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9255CF88296472C000C1BAF2 /* ViewController.swift */; };
+		9255CF89296472C000C1BAF2 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9255CF88296472C000C1BAF2 /* TaskListViewController.swift */; };
 		9255CF8C296472C000C1BAF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9255CF8A296472C000C1BAF2 /* Main.storyboard */; };
-		9255CF8F296472C000C1BAF2 /* _______.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9255CF8D296472C000C1BAF2 /* _______.xcdatamodeld */; };
 		9255CF91296472C200C1BAF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9255CF90296472C200C1BAF2 /* Assets.xcassets */; };
 		9255CF94296472C300C1BAF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9255CF92296472C300C1BAF2 /* LaunchScreen.storyboard */; };
+		9255CFA329648EE000C1BAF2 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9255CFA229648EE000C1BAF2 /* StorageManager.swift */; };
+		9255CFA529648EF200C1BAF2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9255CFA429648EF200C1BAF2 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9255CF81296472C000C1BAF2 /* Заметки.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Заметки.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9255CF84296472C000C1BAF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9255CF86296472C000C1BAF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9255CF88296472C000C1BAF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9255CF88296472C000C1BAF2 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		9255CF8B296472C000C1BAF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9255CF8E296472C000C1BAF2 /* _______.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "_______.xcdatamodel"; sourceTree = "<group>"; };
 		9255CF90296472C200C1BAF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9255CF93296472C300C1BAF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9255CF95296472C300C1BAF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9255CFA229648EE000C1BAF2 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		9255CFA429648EF200C1BAF2 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,65 @@
 		9255CF83296472C000C1BAF2 /* Заметки */ = {
 			isa = PBXGroup;
 			children = (
-				9255CF84296472C000C1BAF2 /* AppDelegate.swift */,
-				9255CF86296472C000C1BAF2 /* SceneDelegate.swift */,
-				9255CF88296472C000C1BAF2 /* ViewController.swift */,
-				9255CF8A296472C000C1BAF2 /* Main.storyboard */,
-				9255CF90296472C200C1BAF2 /* Assets.xcassets */,
-				9255CF92296472C300C1BAF2 /* LaunchScreen.storyboard */,
-				9255CF95296472C300C1BAF2 /* Info.plist */,
-				9255CF8D296472C000C1BAF2 /* _______.xcdatamodeld */,
+				9255CF9B29648DFD00C1BAF2 /* ViewControllers */,
+				9255CF9C29648E1300C1BAF2 /* Storyboards */,
+				9255CF9D29648E1E00C1BAF2 /* Model */,
+				9255CF9E29648E2700C1BAF2 /* Services */,
+				9255CF9F29648E3500C1BAF2 /* Sourses */,
+				9255CFA129648E6500C1BAF2 /* App */,
 			);
 			path = "Заметки";
+			sourceTree = "<group>";
+		};
+		9255CF9B29648DFD00C1BAF2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9255CF88296472C000C1BAF2 /* TaskListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9255CF9C29648E1300C1BAF2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9255CF8A296472C000C1BAF2 /* Main.storyboard */,
+				9255CF92296472C300C1BAF2 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9255CF9D29648E1E00C1BAF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9255CFA429648EF200C1BAF2 /* Task.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9255CF9E29648E2700C1BAF2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9255CFA229648EE000C1BAF2 /* StorageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9255CF9F29648E3500C1BAF2 /* Sourses */ = {
+			isa = PBXGroup;
+			children = (
+				9255CF90296472C200C1BAF2 /* Assets.xcassets */,
+			);
+			path = Sourses;
+			sourceTree = "<group>";
+		};
+		9255CFA129648E6500C1BAF2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9255CF84296472C000C1BAF2 /* AppDelegate.swift */,
+				9255CF86296472C000C1BAF2 /* SceneDelegate.swift */,
+				9255CF95296472C300C1BAF2 /* Info.plist */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9255CF89296472C000C1BAF2 /* ViewController.swift in Sources */,
-				9255CF8F296472C000C1BAF2 /* _______.xcdatamodeld in Sources */,
+				9255CF89296472C000C1BAF2 /* TaskListViewController.swift in Sources */,
 				9255CF85296472C000C1BAF2 /* AppDelegate.swift in Sources */,
+				9255CFA529648EF200C1BAF2 /* Task.swift in Sources */,
 				9255CF87296472C000C1BAF2 /* SceneDelegate.swift in Sources */,
+				9255CFA329648EE000C1BAF2 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JJT989VNH4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Заметки/Info.plist";
+				INFOPLIST_FILE = "Заметки/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -321,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JJT989VNH4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Заметки/Info.plist";
+				INFOPLIST_FILE = "Заметки/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -362,19 +414,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		9255CF8D296472C000C1BAF2 /* _______.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9255CF8E296472C000C1BAF2 /* _______.xcdatamodel */,
-			);
-			currentVersion = 9255CF8E296472C000C1BAF2 /* _______.xcdatamodel */;
-			path = "_______.xcdatamodeld";
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 9255CF79296472C000C1BAF2 /* Project object */;
 }
