@@ -16,12 +16,9 @@ class TaskListViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         taskList = StorageManager.shared.fetchTask()
 
     }
-
-
 
     @IBAction func addNewTask(_ sender: Any) {
         showAlert(withTitle: "Новая задача", andMessage: "Что вы хотите сделать?")
@@ -43,23 +40,6 @@ class TaskListViewController: UIViewController{
         present(alert, animated: true)
     }
 
-    private func showEditAlert(_ with: Task) {
-        let alert = UIAlertController(title: "Редактор задачи", message: "Внести изменение в текущую задачу", preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Сохранить", style: .default) { _ in
-            guard let task = alert.textFields?.first?.text, !task.isEmpty else { return}
-            self.save(task)
-        }
-        let cancelAction = UIAlertAction(title: "Закрыть", style: .destructive)
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        alert.addTextField { textField in
-            textField.placeholder = taskList.
-        }
-
-        present(alert, animated: true)
-
-    }
-
     private func save(_ taskName: String) {
         taskList.append(taskName)
 
@@ -68,7 +48,6 @@ class TaskListViewController: UIViewController{
             at: [cellIndex],
             with: .automatic
         )
-
             StorageManager.shared.save(task: taskName)
 
         }
@@ -100,20 +79,58 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let task = taskList[indexPath.row]
+        func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            let task = taskList[indexPath.row]
 
-        let editAction = UIContextualAction(style: .normal, title: "изменить") { [unowned self] _, _, isDone in
-            showEditAlert(with: ) {
-                tableView.reloadRows(at: [indexPath], with: .automatic)
-
+            let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { _, _, _ in
+                StorageManager.shared.deleteTask(at: indexPath.row)
+                self.taskList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
             }
+
+
+            let editAction = UIContextualAction(style: .normal, title: "Изменить") { [unowned self] _, _, isDone in
+                showEditAlert(with: task)
+
+                StorageManager.shared.deleteTask(at: indexPath.row)
+                taskList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+
+
+
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+
+            editAction.backgroundColor = .orange
+            
+            return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
         }
 
-        return UISwipeActionsConfiguration(actions: [editAction])
+
+    private func showEditAlert(with taskList: String) {
+
+
+        let alert = UIAlertController(title: "Редактор задачи", message: "Редактор задачи", preferredStyle: .alert)
+
+
+        let saveAction = UIAlertAction(title: "Сохранить", style: .default)  { newValue in
+            guard let task = alert.textFields?.first?.text, !task.isEmpty else { return}
+            self.save(task)
+
+        }
+
+
+        let cancelAction = UIAlertAction(title: "Закрыть", style: .destructive)
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        alert.addTextField { textField in
+            textField.placeholder = taskList
+        }
+
+        present(alert, animated: true)
     }
 
 
 }
-
 

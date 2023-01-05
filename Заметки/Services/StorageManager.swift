@@ -23,6 +23,14 @@ class StorageManager {
         defaults.set(tasks, forKey: taskKey)
     }
 
+////    func save(task: Task) {
+//        var tasks = fetchTask()
+//        tasks.append(task)
+//
+//        defaults.set(tasks, forKey: taskKey)
+//    }
+
+
     func fetchTask() -> [String] {
         if let tasks = defaults.value(forKey: taskKey) as? [String] {
             return tasks
@@ -31,11 +39,27 @@ class StorageManager {
         return []
 
     }
+//    func fetchTask() -> [Task] {
+//        if let tasks = defaults.value(forKey: taskKey) as? [Task] {
+//            return tasks
+//        }
+//
+//        return []
+//
+//    }
 
     func deleteTask(at index: Int) {
         var tasks = fetchTask()
         tasks.remove(at: index)
         defaults.set(tasks, forKey: taskKey)
+    }
+    
+    func edit(_ task: Task, newValue: String)  {
+
+      var newValue = task.name
+        
+       defaults.set(newValue, forKey: taskKey)
+
     }
 
 }
