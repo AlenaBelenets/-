@@ -10,20 +10,18 @@ import UIKit
 
 class TaskListViewController: UIViewController{
 
-    var firstTask = Task(name: "Купить хлеб")
-
     //  MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: - Private Property
     private var taskList = [String]()
+    private var firstTask = Task(name: "Купить хлеб")
 
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         taskList = StorageManager.shared.fetchTask()
-        taskList.append(firstTask.name)
-        StorageManager.shared.save(task: firstTask.name)
+        addFirstTask()
     }
 
     //  MARK: - IBAction
@@ -86,6 +84,15 @@ class TaskListViewController: UIViewController{
         StorageManager.shared.save(task: taskName)
 
     }
+    private func addFirstTask() {
+        if taskList.isEmpty {
+            taskList.append(firstTask.name)
+            StorageManager.shared.save(task: firstTask.name)
+        } else {
+            return
+        }
+    }
+
 }
 
 extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
