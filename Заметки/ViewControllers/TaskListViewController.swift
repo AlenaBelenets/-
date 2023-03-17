@@ -10,6 +10,8 @@ import UIKit
 
 class TaskListViewController: UIViewController{
 
+    var firstTask = Task(name: "Купить хлеб")
+
     //  MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
 
@@ -20,7 +22,8 @@ class TaskListViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         taskList = StorageManager.shared.fetchTask()
-
+        taskList.append(firstTask.name)
+        StorageManager.shared.save(task: firstTask.name)
     }
 
     //  MARK: - IBAction
@@ -118,10 +121,10 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
             showEditAlert(with: task)
 
             StorageManager.shared.deleteTask(at: indexPath.row)
+
             taskList.remove(at: indexPath.row)
+
             tableView.deleteRows(at: [indexPath], with: .automatic)
-
-
 
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
